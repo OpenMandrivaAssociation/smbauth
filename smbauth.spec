@@ -3,7 +3,7 @@
 
 %define	rname smbauth
 %define	rversion 1.4.3
-%define	phpversion 5.2.1
+%define	phpversion 5.2.4
 
 #Apache2 Module-Specific definitions
 %define mod_version %{rversion}
@@ -12,14 +12,14 @@
 %define mod_so %{mod_name}.so
 %define sourcename %{mod_name}
 
-%define apache_version 2.2.3
+%define apache_version 2.2.6
 
 %define inifile 58_%{rname}.ini
 
 Summary:	A set of modules for samba authentication
 Name:		%{rname}
 Version:	%{rversion}
-Release:	%mkrel 30
+Release:	%mkrel 31
 License:	GPL
 Group:		System/Servers
 URL:		http://www.tekrat.com/smbauth.php
@@ -45,15 +45,13 @@ Group:		System/Servers
 Requires(pre,postun): rpm-helper
 Requires(pre):	apache-conf >= %{apache_version}
 Requires(pre):	apache >= %{apache_version}
-Provides:	apache2-%{mod_name}
-Obsoletes:	apache2-%{mod_name}
 Epoch:		1
 
 %description -n	apache-%{mod_name}
 Mod_%{name} is a DSO module for the apache Web server.
 
 %package -n	php-%{rname}
-Summary:	Samba auth module for PHP4
+Summary:	Samba auth module for PHP
 Version:	%{rversion}
 Group:		System/Servers
 Epoch:		1
@@ -75,11 +73,11 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 %build
 %serverbuild
-export CFLAGS="%{optflags} -fPIC"
+export CFLAGS="$CFLAGS -fPIC"
 
 # first build the lib
 pushd samba-shared
-    %make CFLAGS="%{optflags} -fPIC"
+    %make CFLAGS="$CFLAGS -fPIC"
 popd
 
 # build the apache2 module
@@ -137,5 +135,3 @@ fi
 %doc README.PHP php/test.php
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{rname}.so
-
-
