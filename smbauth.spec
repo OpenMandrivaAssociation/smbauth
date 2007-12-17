@@ -29,7 +29,6 @@ Patch0:		mod_smbauth-%{rversion}-register.patch
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	file
 BuildRequires:  php-devel >= 3:%{phpversion}
-BuildRoot:	%{_tmppath}/%{rname}-%{rversion}-root
 
 %description
 SMBAuth is a set of modules generated via SWIG and based off of
