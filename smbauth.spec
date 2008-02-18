@@ -19,7 +19,7 @@
 Summary:	Set of modules for samba authentication
 Name:		%{rname}
 Version:	%{rversion}
-Release:	%mkrel 31
+Release:	%mkrel 32
 License:	GPL
 Group:		System/Servers
 URL:		http://www.tekrat.com/smbauth.php
