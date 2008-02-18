@@ -16,7 +16,7 @@
 
 %define inifile 58_%{rname}.ini
 
-Summary:	A set of modules for samba authentication
+Summary:	Set of modules for samba authentication
 Name:		%{rname}
 Version:	%{rversion}
 Release:	%mkrel 31
@@ -39,7 +39,7 @@ include commandline, Apache, Apache2, PHP, Jabber, Java, Perl, and
 Python.
 
 %package -n	apache-%{mod_name}
-Summary:	Mod_%{rname} is a DSO module for the apache Web server
+Summary:	DSO module for the apache Web server
 Version:	%{rversion}
 Group:		System/Servers
 Requires(pre,postun): rpm-helper
