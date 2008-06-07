@@ -19,7 +19,7 @@
 Summary:	Set of modules for samba authentication
 Name:		%{rname}
 Version:	%{rversion}
-Release:	%mkrel 32
+Release:	%mkrel 33
 License:	GPL
 Group:		System/Servers
 URL:		http://www.tekrat.com/smbauth.php
@@ -29,7 +29,7 @@ Patch0:		mod_smbauth-%{rversion}-register.patch
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	file
 BuildRequires:  php-devel >= 3:%{phpversion}
-BuildRoot:	%{_tmppath}/%{rname}-%{rversion}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 SMBAuth is a set of modules generated via SWIG and based off of
@@ -42,7 +42,8 @@ Python.
 Summary:	DSO module for the apache Web server
 Version:	%{rversion}
 Group:		System/Servers
-Requires(pre,postun): rpm-helper
+Requires(pre): rpm-helper
+Requires(postun): rpm-helper
 Requires(pre):	apache-conf >= %{apache_version}
 Requires(pre):	apache >= %{apache_version}
 Epoch:		1
