@@ -22,7 +22,7 @@ Version:	%{rversion}
 Release:	%mkrel 36
 License:	GPL
 Group:		System/Servers
-URL:		http://www.tekrat.com/smbauth.php
+URL:		https://www.tekrat.com/smbauth.php
 Source0:	%{rname}%{rversion}.tar.bz2
 Source1:	%{mod_conf}.bz2
 Patch0:		mod_smbauth-%{rversion}-register.patch
